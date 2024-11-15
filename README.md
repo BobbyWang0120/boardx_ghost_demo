@@ -1,16 +1,6 @@
 # BoardX Theme Demo
 
-这是一个基于Ghost CMS的自定义主题项目，采用现代化的黑白设计风格，集成了Tailwind CSS，提供了简洁优雅的阅读体验。
-
-## 功能特点
-
-- 🎨 简约黑白配色方案
-- 📱 完全响应式设计
-- 🚀 Tailwind CSS集成
-- 🔍 优化的文章阅读体验
-- 🏷️ 优雅的标签页面
-- 📄 自定义About页面
-- 🔧 实用的管理脚本
+这是一个用于学习Ghost主题开发的演示项目，集成了Tailwind CSS。
 
 ## 快速开始
 
@@ -35,7 +25,7 @@ cp .env.example .env
 ```
 
 2. 获取Ghost Admin API Key：
-   - 访问Ghost管理面板 (http://localhost:2369/ghost/)
+   - 访问Ghost管理面板 (http://localhost:2368/ghost/)
    - 进入Settings > Integrations
    - 点击"Add custom integration"
    - 填写名称（如"Theme Management"）
@@ -98,8 +88,8 @@ npm run dev
 ```
 
 现在你可以访问：
-- 网站首页：http://localhost:2369
-- 管理面板：http://localhost:2369/ghost/
+- 网站首页：http://localhost:2368
+- 管理面板：http://localhost:2368/ghost/
 
 ### 7. 主题结构
 
@@ -147,15 +137,6 @@ boardx_theme_demo/
 3. 页面模板不生效
    - 重启Ghost服务
    - 检查模板文件命名是否正确
-
-### 10. 贡献指南
-
-欢迎提交Issue和Pull Request来改进这个主题。在提交代码前，请确保：
-
-- 遵循现有的代码风格
-- 添加必要的注释
-- 更新相关文档
-- 不要提交敏感信息
 
 ## 许可证
 

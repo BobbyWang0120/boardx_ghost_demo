@@ -16,7 +16,7 @@ if (!process.env.GHOST_ADMIN_API_KEY) {
 // Ghost Admin API Configuration
 const [id, secret] = process.env.GHOST_ADMIN_API_KEY.split(':');
 
-// Rest of the original code remains unchanged...
+// Create Admin API JWT token
 function createToken() {
     const now = Math.floor(Date.now() / 1000);
     const exp = now + 5 * 60;
@@ -48,7 +48,7 @@ function makeRequest(method, path, data = null) {
     return new Promise((resolve, reject) => {
         const options = {
             hostname: 'localhost',
-            port: 2369,
+            port: 2368,
             path: `/ghost/api/v3/admin/${path}`,
             method: method,
             headers: {
@@ -190,7 +190,7 @@ async function createSamplePage() {
 
         console.log('\nSample page has been created/updated successfully!');
         console.log('To complete the setup:');
-        console.log('1. Visit Ghost Admin: http://localhost:2369/ghost/');
+        console.log('1. Visit Ghost Admin: http://localhost:2368/ghost/');
         console.log('2. Go to Settings > Navigation');
         console.log('3. Add a new navigation item:');
         console.log('   - Label: Sample');
@@ -200,7 +200,7 @@ async function createSamplePage() {
     } catch (error) {
         console.error('\nError:', error.message);
         console.error('\nTroubleshooting steps:');
-        console.error('1. Ensure Ghost is running at http://localhost:2369');
+        console.error('1. Ensure Ghost is running at http://localhost:2368');
         console.error('2. Verify your Admin API key is correct');
         console.error('3. Check if you have proper permissions');
     }
