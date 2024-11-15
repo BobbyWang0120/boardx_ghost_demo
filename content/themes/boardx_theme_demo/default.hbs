@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{meta_title}}</title>
+    <link rel="stylesheet" href="{{asset "css/screen.css"}}">
+    {{ghost_head}}
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <div class="min-h-screen flex flex-col">
+        <header class="bg-white border-b border-gray-100">
+            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex-shrink-0">
+                        <a href="{{@site.url}}" class="text-2xl font-bold tracking-tight">{{@site.title}}</a>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center space-x-8">
+                        {{#if @site.navigation}}
+                            {{navigation}}
+                        {{/if}}
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <button class="p-2 text-gray-600 hover:text-gray-900 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </button>
+                        
+                        <a href="#subscribe" class="inline-flex items-center px-4 py-2 border border-black text-sm font-medium rounded-full text-black hover:bg-black hover:text-white transition-colors duration-200">
+                            Subscribe
+                            <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="flex-grow">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                {{{body}}}
+            </div>
+        </main>
+
+        <footer class="bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">About</h3>
+                        <p class="text-gray-600">{{@site.description}}</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Navigation</h3>
+                        <div class="flex flex-col space-y-2">
+                            {{navigation}}
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Subscribe</h3>
+                        <p class="text-gray-600 mb-4">Get the latest posts delivered right to your inbox.</p>
+                        <form class="flex">
+                            <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent">
+                            <button type="submit" class="px-4 py-2 bg-black text-white rounded-r-lg hover:bg-gray-800 transition-colors">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="mt-8 pt-8 border-t border-gray-200 text-center text-gray-600">
+                    <p>&copy; {{date format="YYYY"}} {{@site.title}}. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    {{ghost_foot}}
+
+    <style>
+        /* 覆盖Ghost默认的导航样式 */
+        .nav {
+            display: flex !important;
+            align-items: center !important;
+            gap: 2rem !important;
+        }
+        .nav li {
+            margin: 0 !important;
+        }
+        .nav a {
+            color: #4B5563 !important;
+            font-size: 0.875rem !important;
+            font-weight: 500 !important;
+            transition: color 0.2s !important;
+        }
+        .nav a:hover {
+            color: #111827 !important;
+        }
+        
+        /* 覆盖Ghost默认的订阅按钮样式 */
+        .gh-head-button {
+            display: inline-flex !important;
+            align-items: center !important;
+            padding: 0.5rem 1rem !important;
+            border: 1px solid #000 !important;
+            border-radius: 9999px !important;
+            font-size: 0.875rem !important;
+            font-weight: 500 !important;
+            color: #000 !important;
+            background: transparent !important;
+            transition: all 0.2s !important;
+        }
+        
+        .gh-head-button:hover {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        /* 强制覆盖Portal按钮样式 */
+        .gh-portal-triggerbtn-wrapper {
+            position: fixed !important;
+            bottom: 2rem !important;
+            right: 2rem !important;
+            z-index: 9999 !important;
+        }
+
+        .gh-portal-triggerbtn-container {
+            display: inline-flex !important;
+            align-items: center !important;
+            padding: 0.5rem 1rem !important;
+            border: 1px solid #000 !important;
+            border-radius: 9999px !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+            color: #000 !important;
+            font-family: inherit !important;
+            font-size: 0.875rem !important;
+            font-weight: 500 !important;
+            transition: all 0.2s ease !important;
+            cursor: pointer !important;
+        }
+
+        .gh-portal-triggerbtn-container:hover {
+            background-color: #000 !important;
+            color: #fff !important;
+            transform: translateY(-1px) !important;
+        }
+
+        .gh-portal-triggerbtn-container svg {
+            width: 1rem !important;
+            height: 1rem !important;
+            margin-right: 0.5rem !important;
+            stroke: currentColor !important;
+            color: currentColor !important;
+        }
+
+        .gh-portal-triggerbtn-container .gh-portal-triggerbtn-label {
+            color: inherit !important;
+            font-size: inherit !important;
+            font-weight: inherit !important;
+        }
+
+        /* 移除默认的背景和效果 */
+        .gh-portal-triggerbtn-container::before {
+            display: none !important;
+        }
+    </style>
+</body>
+</html>

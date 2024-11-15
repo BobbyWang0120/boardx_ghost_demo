@@ -1,0 +1,103 @@
+{{!< default}}
+
+{{#page}}
+<article class="max-w-4xl mx-auto px-4">
+    <header class="text-center mb-20">
+        <h1 class="text-5xl md:text-6xl font-bold mb-8">{{title}}</h1>
+        <div class="w-16 h-1 bg-black mx-auto transform transition-all duration-300 hover:w-24"></div>
+    </header>
+
+    {{#if feature_image}}
+    <figure class="mb-20 transform hover:scale-[1.02] transition-transform duration-500">
+        <img class="w-full h-[500px] object-cover rounded-2xl shadow-lg" src="{{feature_image}}" alt="{{title}}">
+    </figure>
+    {{/if}}
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20">
+        <div class="md:col-span-2 prose prose-lg prose-headings:font-bold prose-headings:text-black prose-p:text-gray-600">
+            {{content}}
+        </div>
+        
+        <div class="space-y-8">
+            <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-shadow duration-300">
+                <h3 class="text-xl font-bold mb-6 flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                    Quick Links
+                </h3>
+                <ul class="space-y-3">
+                    {{#foreach @site.navigation}}
+                    <li>
+                        <a href="{{url}}" 
+                           class="flex items-center text-gray-600 hover:text-black transition-colors duration-200 group">
+                            <span class="w-1 h-1 bg-gray-300 rounded-full mr-3 group-hover:bg-black transition-colors"></span>
+                            {{label}}
+                        </a>
+                    </li>
+                    {{/foreach}}
+                </ul>
+            </div>
+
+            <div class="bg-black text-white p-8 rounded-2xl transform hover:translate-y-[-4px] transition-all duration-300">
+                <h3 class="text-xl font-bold mb-6 flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    Contact
+                </h3>
+                <div class="space-y-4">
+                    <a href="mailto:{{@site.title}}" 
+                       class="block px-4 py-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-200">
+                        Contact Us
+                    </a>
+                    {{#if @site.twitter}}
+                    <a href="{{twitter_url}}" 
+                       class="block px-4 py-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors duration-200">
+                        Follow us
+                    </a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="group">
+            <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform group-hover:translate-y-[-4px]">
+                <div class="w-12 h-12 bg-black text-white rounded-xl flex items-center justify-center mx-auto mb-6 transform transition-transform group-hover:rotate-12">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-3 text-center">Design</h3>
+                <p class="text-gray-600 text-center text-sm">Clean and minimalist black & white design</p>
+            </div>
+        </div>
+
+        <div class="group">
+            <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform group-hover:translate-y-[-4px]">
+                <div class="w-12 h-12 bg-black text-white rounded-xl flex items-center justify-center mx-auto mb-6 transform transition-transform group-hover:rotate-12">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-3 text-center">Responsive</h3>
+                <p class="text-gray-600 text-center text-sm">Perfect layout on all devices</p>
+            </div>
+        </div>
+
+        <div class="group">
+            <div class="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform group-hover:translate-y-[-4px]">
+                <div class="w-12 h-12 bg-black text-white rounded-xl flex items-center justify-center mx-auto mb-6 transform transition-transform group-hover:rotate-12">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-3 text-center">Performance</h3>
+                <p class="text-gray-600 text-center text-sm">Optimized for speed and efficiency</p>
+            </div>
+        </div>
+    </div>
+</article>
+{{/page}}

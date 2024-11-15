@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+@layer base {
+    /* 添加Inter字体 */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    /* 基础样式重置 */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply antialiased;
+    }
+}
+
+@layer components {
+    /* 导航链接样式 */
+    .nav-item {
+        @apply inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-colors;
+    }
+
+    /* 文章卡片悬停效果 */
+    .article-card {
+        @apply transition-all duration-300 hover:shadow-lg;
+    }
+
+    /* 自定义按钮样式 */
+    .btn-primary {
+        @apply inline-flex items-center px-6 py-3 border border-black text-base font-medium rounded-full text-black hover:bg-black hover:text-white transition-colors duration-200;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-full text-gray-700 hover:border-black hover:text-black transition-colors duration-200;
+    }
+}
+
+@layer utilities {
+    /* 渐变背景 */
+    .bg-gradient-subtle {
+        @apply bg-gradient-to-br from-gray-50 to-white;
+    }
+
+    /* 图片悬停缩放 */
+    .hover-scale {
+        @apply transition-transform duration-300 hover:scale-105;
+    }
+
+    /* 文字渐变 */
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600;
+    }
+}
+
+/* 自定义动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Ghost特定样式覆盖 */
+.kg-gallery-container {
+    @apply my-8;
+}
+
+.kg-gallery-row {
+    @apply flex gap-4;
+}
+
+.kg-gallery-image img {
+    @apply rounded-lg;
+}
+
+.kg-bookmark-card {
+    @apply my-8;
+}
+
+.kg-bookmark-container {
+    @apply border border-gray-200 rounded-lg overflow-hidden hover:border-gray-300 transition-colors;
+}
+
+/* 分页样式 */
+.pagination {
+    @apply flex items-center justify-center space-x-2;
+}
+
+.pagination a {
+    @apply px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-colors;
+}
+
+.pagination span.current {
+    @apply px-4 py-2 text-sm font-medium text-black;
+}
+
+/* 代码块样式 */
+pre {
+    @apply bg-gray-50 rounded-lg p-4 overflow-x-auto;
+}
+
+code {
+    @apply font-mono text-sm;
+}
+
+/* 引用块样式 */
+blockquote {
+    @apply border-l-4 border-black pl-4 italic my-8;
+}

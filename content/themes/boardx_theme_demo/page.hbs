@@ -1,0 +1,20 @@
+{{!< default}}
+
+{{#page}}
+<article class="max-w-4xl mx-auto px-4">
+    <header class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-8">{{title}}</h1>
+        <div class="w-16 h-1 bg-black mx-auto"></div>
+    </header>
+
+    {{#if feature_image}}
+    <figure class="mb-16 aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
+        <img class="w-full h-full object-cover" src="{{feature_image}}" alt="{{title}}">
+    </figure>
+    {{/if}}
+
+    <div class="prose prose-lg max-w-none">
+        {{content}}
+    </div>
+</article>
+{{/page}}

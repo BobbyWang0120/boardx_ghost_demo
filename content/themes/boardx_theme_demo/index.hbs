@@ -1,0 +1,84 @@
+{{!< default}}
+
+<div class="space-y-16">
+    {{#foreach posts}}
+        {{#if @first}}
+        <article class="relative group">
+            {{#if feature_image}}
+            <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
+                <img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300" src="{{feature_image}}" alt="{{title}}">
+            </div>
+            {{/if}}
+            <div class="mt-6">
+                <div class="flex items-center text-sm text-gray-500 mb-3">
+                    <time datetime="{{date format="YYYY-MM-DD"}}">
+                        <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        {{date format="D MMM YYYY"}}
+                    </time>
+                    <span class="mx-2">•</span>
+                    <span>
+                        <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        {{reading_time minute="1 min" minutes="% mins"}}
+                    </span>
+                </div>
+                <h2 class="text-3xl font-bold mb-3">
+                    <a href="{{url}}" class="hover:text-gray-600 transition-colors">{{title}}</a>
+                </h2>
+                <p class="text-gray-600 text-lg mb-4">{{excerpt words="30"}}</p>
+                <a href="{{url}}" class="inline-flex items-center text-black hover:text-gray-600 transition-colors">
+                    Read more
+                    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </article>
+        {{else}}
+        {{#if @index}}
+            {{#if @index}}
+                {{#has index="1"}}
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {{/has}}
+                <article class="group">
+                    {{#if feature_image}}
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mb-4">
+                        <img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300" src="{{feature_image}}" alt="{{title}}">
+                    </div>
+                    {{/if}}
+                    <div class="flex items-center text-sm text-gray-500 mb-2">
+                        <time datetime="{{date format="YYYY-MM-DD"}}">
+                            <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            {{date format="D MMM YYYY"}}
+                        </time>
+                    </div>
+                    <h2 class="text-xl font-bold mb-2">
+                        <a href="{{url}}" class="hover:text-gray-600 transition-colors">{{title}}</a>
+                    </h2>
+                    <p class="text-gray-600 mb-4">{{excerpt words="15"}}</p>
+                    <a href="{{url}}" class="inline-flex items-center text-black hover:text-gray-600 transition-colors text-sm">
+                        Continue reading
+                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </article>
+                {{#has index=totalPosts}}
+                    </div>
+                {{/has}}
+            {{/if}}
+        {{/if}}
+        {{/if}}
+    {{/foreach}}
+</div>
+
+<div class="mt-16">
+    <nav class="flex justify-center">
+        {{pagination}}
+    </nav>
+</div>
